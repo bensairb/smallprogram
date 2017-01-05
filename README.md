@@ -1,1 +1,1 @@
-# smallprogram
+#*some small programs I wrote*
