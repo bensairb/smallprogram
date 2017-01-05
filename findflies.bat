@@ -1,19 +1,17 @@
-@echo "ÅúÁ¿Ñ°ÕÒÎÄ¼þ"
-@echo "ÒÔgetname.txtÖÐÁÐ±íÎª¹Ø¼ü×Ö£¬£¬ºÅÎª·Ö¸ô·û"
-@echo "Ñ°ÕÒÂ·¾¶ÔÚresult.txt"
-@echo "Ñ°ÕÒ½á¹ûÔÚpicresultÖÐ"
-@echo .
-@echo .
-@echo "------------ clear old files"
-@if exist filepath.txt @del filepath.txt else @echo "--------- old files doesn't exist"
-@if exist result.txt @del result.txt else @echo "--------- old files doesn't exist"
-@echo "------------- loop through"
+@echo "æ‰¹é‡å¯»æ‰¾æ–‡ä»¶"
+@echo "ä»¥getname.txtä¸­åˆ—è¡¨ä¸ºå…³é”®å­—ï¼Œï¼Œå·ä¸ºåˆ†éš”ç¬¦"
+@echo "å¯»æ‰¾è·¯å¾„åœ¨result.txt"
+@echo "å¯»æ‰¾ç»“æžœåœ¨picresultä¸­"
+@echo "clear old files"
+@if exist filepath.txt @del filepath.txt else @echo "old files doesn't exist"
+@if exist result.txt @del result.txt else @echo "old files doesn't exist"
+@echo "loopping through"
 @for /R  %%s in (*) do @echo %%s >> filepath.txt
-@echo "------------- loop through done"
+@echo "loopping through done"
 @pause 
-@echo "------------- begin to find pic"
+@echo " begin to find pic"
 @for /f "delims=, " %%i in (getname.txt) do @findstr ".*%%i\>" filepath.txt >>result.txt
-@echo "------------- get picpath >>result.txt"
+@echo "get picpath >>result.txt"
 @mkdir picresult
 @for /f  "delims=" %%j in (result.txt) do @copy "%%j" picresult\
 @pause
